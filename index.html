@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{obj.name}}--{{obj.age}}</h2>
+        <h2>{{obj.age}}</h2>
+        <h3 v-text='obj.name'></h3>
+        <h4 v-text='msg'></h4>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <h3>{{msg}}</h3>
+        <div v-html='htmlStr'></div>
+        <div v-html='obj.fav'></div>
+        <input type="text" v-model='msg'>
+        <img v-bind:src="imgSrc" v-bind:alt="altTitle" style="width: 200px;">
+        <button v-on:click='handlerClick'>按钮1</button>
+        <button v-on:click='handlerClick2'>按钮2</button>
+        <button @click='handlerClick2'>按钮3</button>
+    </div>
+    <script src="./MVue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                obj: {
+                    name: '小马哥',
+                    age: 19,
+                    fav:'<h4>前端Vue</h4>'
+                },
+                msg: 'MVVM实现原理',
+                htmlStr:"<h3>hello MVVM</h3>",
+                imgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568782284688&di=8635d17d550631caabfeb4306b5d76fa&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb3b7d0a20cf431ad7427dfad4136acaf2fdd98a9.jpg',
+                altTitle:'眼睛',
+                isActive:'true'
+
+            },
+            methods: {
+                handlerClick() {
+                    alert(1);
+                    
+                },
+                handlerClick2(){
+                    alert(2)
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
